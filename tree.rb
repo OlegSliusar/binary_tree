@@ -2,15 +2,19 @@ require_relative 'node'
 class Tree
   attr_reader :tree
   def build_tree(ary)
-    node = nil
     ary.each do |item|
-      if node.nil?
-        node = Node.new(item)
-        next
-      end
-      node.parent = Node.new(item, node)
-      node = node.parent
+      @tree = insert(item, @tree)
     end
-    @tree = node
+    @tree
+  end
+
+  def insert(item, tree)
+    if tree.nil?
+      tree = Node.new(item)
+      return tree
+    end
+    tree.parent = Node.new(item, nil, tree)
+    tree = tree.parent
+    tree
   end
 end
