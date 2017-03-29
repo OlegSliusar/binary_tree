@@ -9,12 +9,13 @@ class Tree
   end
 
   def insert(item, root)
-    if root.nil?
+    if !root
       root = Node.new(item)
-      return root
+    elsif item < root.value
+      root.left = insert(item, root.left)
+    else
+      root.right = insert(item, root.right)
     end
-    root.parent = Node.new(item, nil, root)
-    root = root.parent
     root
   end
 end

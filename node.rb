@@ -1,9 +1,6 @@
 class Node
-  attr_accessor :value, :parent, :left, :right
-  def initialize(value, parent = nil, left = nil, right = nil)
+  attr_accessor :value, :left, :right
+  def initialize(value)
     @value = value
-    @parent = parent
-    @left = left
-    @right = right
   end
 end
