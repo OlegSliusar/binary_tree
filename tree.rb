@@ -37,4 +37,25 @@ class Tree
       end
     end
   end
+
+  def depth_first_search(value)
+    stack = []
+    stack << @root
+    while !stack.empty?
+      current = stack.pop
+      
+      if current.value == value
+        return current
+      end
+
+      unless current.right.nil?
+        current.right.parent = current
+        stack << current.right
+      end
+      unless current.left.nil?
+        current.left.parent = current
+        stack << current.left
+      end
+    end
+  end
 end

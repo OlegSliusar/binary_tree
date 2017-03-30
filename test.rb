@@ -14,3 +14,10 @@ puts YAML::dump(new_tree.breadth_first_search(3))
 File.open('found_node_bfs.yaml', 'w') do |file|
   file.puts YAML::dump(new_tree.breadth_first_search(3))
 end
+# new_tree.depth_first_search(3)
+puts YAML::dump(new_tree.depth_first_search(3))
+File.open('found_node_dfs.yaml', 'w') do |file|
+  file.puts YAML::dump(new_tree.depth_first_search(3))
+end
+
+# print "#{current.value}, "
