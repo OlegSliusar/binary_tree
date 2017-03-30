@@ -20,22 +20,18 @@ class Tree
   end
 
   def breadth_first_search(value)
-    s = []
     q = []
-    s << @root
     q << @root
     while !q.empty?
       current = q.shift
       if current.value == value
         return current
       end
-      unless s.include?(current.left) || current.left.nil?
-        s << current.left
+      unless current.left.nil?
         current.left.parent = current
         q << current.left
       end
-      unless s.include?(current.right) || current.right.nil?
-        s << current.right
+      unless current.right.nil?
         current.right.parent = current
         q << current.right
       end
