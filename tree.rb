@@ -43,7 +43,7 @@ class Tree
     stack << @root
     while !stack.empty?
       current = stack.pop
-      
+
       if current.value == value
         return current
       end
@@ -57,5 +57,15 @@ class Tree
         stack << current.left
       end
     end
+  end
+
+  def dfs_rec(value, root = @root)
+    if root.nil? || root.value == value
+      return root
+    end
+    root.left.parent = root unless root.left.nil?
+    dfs_rec(value, root.left)
+    root.right.parent = root unless root.right.nil?
+    dfs_rec(value, root.right)
   end
 end
